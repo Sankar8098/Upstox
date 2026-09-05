@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: upstox-nse-stock-bot
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    envVars:
+      - key: UPSTOX_ACCESS_TOKEN
+        sync: false
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: TELEGRAM_CHAT_ID
+        sync: false
+      - key: SCAN_TIMES
+        value: 09:20,12:30,15:15
+      - key: DEEP_SCAN_LIMIT
+        value: "2000"
+      - key: TOP_ALERTS
+        value: "10"
+      - key: MIN_SCORE
+        value: "70"
+      - key: NEWS_ENABLED
+        value: "1"
+      - key: NEWS_HOURS
+        value: "48"
+      - key: DRY_RUN
+        value: "0"
